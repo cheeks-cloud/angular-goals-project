@@ -1,0 +1,15 @@
+<!--thiis is the template for goal details-->
+<p> 
+  {{goal.description}}
+</p>
+<p>This goal will be complete in {{goal.completeDate | dateCouunt}}  </p>
+<button (click)="goalComplete(true)">Complete</button>
+<!--button to delete goal if we want to-->
+ 
+
+
+
+
+<!--1. we add an event wheere we want it and equate it to a function that takea a boolean
+2.we create a function in ts that emits the boolean value,,use output decoratsr and vent emiiter
+3.in parent html the output emit function is equated to function one that has the event as parameter-->

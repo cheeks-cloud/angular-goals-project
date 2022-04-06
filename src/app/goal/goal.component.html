@@ -1,0 +1,38 @@
+<div class="container">
+  <p>goal works!</p>
+  <h1>My Goals</h1>
+  <p>My goal for today is {{ thing }}</p>
+  <hr>
+  <div class="row">
+    <div class="col-md-6">
+        <ul>
+          <div *ngFor="let goal of goals;let i = index">
+          
+              <li appStrikethrough>  {{goal.id}}   {{ goal.name }} due on {{goal.completeDate | dateCouunt}} </li>
+              <button (click)="toggleDetails(i)" >Toggle Details</button>
+              <app-goal-details *ngIf="goal.showDescription" [goal]="goal"
+              (isComplete)="completeGoal($event, i)"></app-goal-details>
+                  <!--abv line gooes under because we want description to display after the goal
+                  "goal" is from parent [goal]i she target,,to do this binding in parent component the child has to have an@input decorator-->
+                <!--line 11 catches the event omited from goal detail then it triggers the function complete Goal-->
+          </div>
+        </ul>
+    </div>
+  </div>
+  <p *ngIf='goals.length > 3'>Your Goals are too many</p>
+
+  <div class="col-md-6">
+    <app-goal-form (addGoal)="addNewGoal($event)"></app-goal-form>
+  </div>
+
+
+
+
+
+    <div>
+      <h2>My career looks like</h2>
+      <p>
+        {{career}}
+      </p>
+    </div>
+</div>

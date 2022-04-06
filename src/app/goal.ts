@@ -1,0 +1,13 @@
+//we create a class to hold the constructor for goals
+
+export class Goal {
+
+  showDescription: boolean;
+  constructor(public id: number,
+    public name: string,
+    public description: string,
+    public completeDate: Date){
+      this.showDescription= false
+    }
+  
+}

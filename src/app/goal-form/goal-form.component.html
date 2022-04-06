@@ -1,0 +1,41 @@
+<p>goal-form works!</p>
+<div class="container-fluid">
+  <h2 class="text-center">Create a new Goal</h2>
+  <hr>
+  <!--adding the below form template (#goalForm = 'ngForm')reference provide form withe additional features amd allowss to monitor changes and input validity
+  the ngsubmit is a directive to enable submission-->
+  <form (ngSubmit)="submitGoal()" #goalForm = 'ngForm'>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name"[(ngModel)] = "newGoal.name" name = "name" 
+      #name = 'ngModel' required>
+<!--the ngmodel requires name attribute
+  test to see if we get any data
+add the lat #ngmoodel required for form validation
+pristine allows us to hide the alert when we load an empty page-->
+       <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+         <p>Name is Required</p>
+       </div>
+      <!-- Display {{newGoal.name}} -->
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea class="form-control" id="description" rows="4" [(ngModel)]="newGoal.description" name="description" 
+      #description="ngModel" required></textarea>
+      <div [hidden]="description.valid || description.pristine" class="alert alert-danger">
+        <p>Description is Required</p>
+      </div>
+      
+    </div>
+    <div class="form-group">
+      <label for="complete">Completion</label>
+      <input type="date"id="complete" [(ngModel)]="newGoal.completeDate"name="completeDate" 
+      #completeDate = "ngModel"required>
+      <div [hidden]="completeDate.valid || completeDate.pristine" class="alert alert-danger">
+        <p>Date is Required</p>
+      </div>
+
+    </div>
+    <button type="submit" class="btn btn-dark">Add New Goal</button>
+  </form>
+</div>

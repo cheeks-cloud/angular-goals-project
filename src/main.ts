@@ -10,3 +10,5 @@ if (environment.production) {
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
+//groups of modules are calle dlibraries
+//the appmodule is the rpoot and it sis bootstrapped here
