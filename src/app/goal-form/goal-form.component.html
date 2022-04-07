@@ -1,4 +1,4 @@
-<p>goal-form works!</p>
+
 <div class="container-fluid">
   <h2 class="text-center">Create a new Goal</h2>
   <hr>
@@ -9,10 +9,8 @@
       <label for="name">Name</label>
       <input type="text" class="form-control" id="name"[(ngModel)] = "newGoal.name" name = "name" 
       #name = 'ngModel' required>
-<!--the ngmodel requires name attribute
-  test to see if we get any data
-add the lat #ngmoodel required for form validation
-pristine allows us to hide the alert when we load an empty page-->
+                            <!-- #ngmodel required for form validation
+                            pristine allows us to hide the alert when we load an empty page-->
        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
          <p>Name is Required</p>
        </div>

@@ -10,8 +10,9 @@ import { Goal } from '../goal';
 //logic for fom-component
 export class GoalFormComponent implements OnInit {
 
-
+            //creating a new form
   newGoal = new Goal(0,"","",new Date ())
+  
   @Output() addGoal = new EventEmitter<Goal>()
   //submit function called on submission otuputs an event to parent component that adds the goal
   
